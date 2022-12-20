@@ -1,4 +1,4 @@
 class Bowl < ApplicationRecord
   belongs_to :restaurant
-  has_many :images
+  has_one_attached :image
 end

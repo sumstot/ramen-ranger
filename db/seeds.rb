@@ -5,6 +5,8 @@ Restaurant.destroy_all
 Bowl.destroy_all
 
 puts 'Generating new restaurants'
+
+index = 1
 10.times do
   restaurant = Restaurant.create!(
     name: Faker::Restaurant.name,
@@ -24,6 +26,11 @@ soup = %w[niboshi tonkotsu shoyu shio tantanmen miso chukasoba sokisoba]
   bowl.description = "This is a unique #{bowl.soup} ramen"
   bowl.review = "A solid bowl of #{bowl.soup} ramen"
   bowl.score = bowl.score.round(1)
+  bowl.image.attach(
+    io: File.open(File.join(Rails.root, "app/assets/images/ramen/ramen#{index}.jpg")),
+    filename: "ramen#{index}.jpg"
+  )
+  index += 1
   bowl.save
 end
 
