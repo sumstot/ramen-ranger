@@ -1,5 +1,6 @@
 class BowlsController < ApplicationController
   def index
+    @bowls = Bowl.all
   end
 
   def new
@@ -23,7 +24,7 @@ class BowlsController < ApplicationController
   end
 
   private
-  
+
   def bowl_params
     params.require(:bowl).permit(:soup, :score, :description, :review)
   end

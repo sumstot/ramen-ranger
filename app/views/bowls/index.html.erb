@@ -1,0 +1,8 @@
+<div class="container mt-3">
+  <h1>My recent ramen reviews</h1>
+  <div class="bowl-container">
+    <% @bowls.each do |bowl| %>
+      <%= render 'bowl', bowl: bowl  %>
+    <% end %>
+  </div>
+</div>
