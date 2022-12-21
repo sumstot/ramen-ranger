@@ -1,15 +1,17 @@
 .bowl-card {
-  width: 400px;
-  height: 700px;
+  width: 300px;
+  height: 525px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
 }
 
 .bowl-image {
-  width: 400px;
+  width: 300px;
   object-fit: contain;
+  border-radius: 10px 10px 0 0;
 }
 
-.score-container {
+.name-container {
   width:100%;
   display: flex;
   justify-content: space-between;
@@ -17,4 +19,46 @@
   // margin-right: 16px;
   margin-top: 8px;
   margin-bottom: 8px;
+}
+
+.cards {
+  margin: 0 auto;
+  // max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }
