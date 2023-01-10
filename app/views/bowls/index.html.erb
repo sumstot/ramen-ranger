@@ -2,7 +2,9 @@
   <h1>My recent ramen reviews</h1>
   <div class="bowl-container cards">
     <% @bowls.each do |bowl| %>
-      <%= render 'bowl', bowl: bowl  %>
+      <%= link_to bowl_path(bowl) do %>
+        <%= render 'bowl', bowl: bowl  %>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -1,3 +1,4 @@
+
 <div class="bowl-card mt-5 mb-5">
   <div class="image">
     <%= image_tag (bowl.image), :class => "bowl-image"%>
@@ -9,8 +10,10 @@
   <div class="score-container">
     <span class="px-3"><%= bowl.soup.capitalize %></span>
   </div>
+  <div class="address-container">
+    <span><%= bowl.restaurant.address %></span>
+  </div>
   <div class="px-3">
     <%= bowl.description %>
   </div>
-
 </div>

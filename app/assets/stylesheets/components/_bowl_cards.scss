@@ -1,12 +1,13 @@
 .bowl-card {
-  width: 300px;
+  width: 250px;
   height: 525px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
+  background-color: #f8f8f8;
 }
 
 .bowl-image {
-  width: 300px;
+  width: 250px;
   object-fit: contain;
   border-radius: 10px 10px 0 0;
 }
