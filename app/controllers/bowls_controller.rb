@@ -1,6 +1,13 @@
 class BowlsController < ApplicationController
   def index
     @bowls = Bowl.all
+    @restaurants = Restaurant.all
+    @markers = @restaurants.geocoded.map do |restaurant|
+      {
+        lat: restaurant.latitude,
+        lng: restaurant.longitude
+      }
+    end
   end
 
   def new
