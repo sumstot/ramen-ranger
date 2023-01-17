@@ -20,14 +20,17 @@ addresses = [
 ]
 index = 1
 address_index = 0
+names_index = 0
 
+names = ['Zen Laboratory (善ラボラトリー)', 'Buta no Hoshi (ぶたのほし)', 'Kobe Gyu Ramen Yazawa (神戸牛らーめん八坐)', 'Kamigata Rainbow (上方レインボー)', 'Tonkotsu Mazesoba Kozou+ (豚骨まぜそばKOZOU＋)', 'Menya Teru Nakatsu (麺や輝中津店)', 'Strike Ken (ストライク軒)', 'Menya New Classic (メンヤニュークラシック)', 'SPICExRAMEN SUSUSU (SPICExRAMENススス)', 'Moeyo Mensuke (燃えよ麺助)' ]
 10.times do
   restaurant = Restaurant.create!(
-    name: Faker::Restaurant.name,
+    name: names[names_index],
     year_opened: rand(1970..2022)
   )
   restaurant.address = addresses[address_index]
   restaurant.save
+  names_index += 1
   address_index += 1
 end
 
