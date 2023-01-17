@@ -29,6 +29,8 @@ names = ['Zen Laboratory (善ラボラトリー)', 'Buta no Hoshi (ぶたのほ�
     year_opened: rand(1970..2022)
   )
   restaurant.address = addresses[address_index]
+  restaurant.prefecture = %w[Osaka Wakayama Kyoto Hyogo Tokyo].sample
+  restaurant.station = %w[Sannomiya Umeda Fukushima Shibuya Kawaramachi Amagasaki].sample
   restaurant.save
   names_index += 1
   address_index += 1
