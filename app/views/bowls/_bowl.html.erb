@@ -4,17 +4,20 @@
     <%= image_tag (bowl.image), :class => "bowl-image"%>
   </div>
   <div class="info-container">
-    <div class="px-3">
-      <span><%= bowl.restaurant.name %></span>
+    <div class="px-3 d-flex flex-column justify-content-center align-items-center">
+      <div><%= bowl.restaurant.name %></div>
+      <div><%= bowl.restaurant.jpn_name %></div>
+    </div>
+    <div class="mt-2">
+      <span class="material-icons-outlined md-18 ps-2">ramen_dining</span><span> : <%= bowl.soup %></span>
     </div>
     <div>
-      <span class="px-3"><i class="fa-light fa-bowl-chopsticks-noodles"></i>: <%= bowl.soup %></span>
+      <span class="material-icons-outlined md-18 ps-2">grade</span><span> : <%= bowl.score %> / 5</span>
     </div>
     <div>
-      <span class="px-3"><i class="fa-solid fa-train"></i> : <%= bowl.restaurant.station %></span>
+      <span class="material-icons-outlined md-18 ps-2">train</span><span> : <%= bowl.restaurant.station %></span> <span class="material-icons-outlined md-18 ps-2">location_on</span><span> : <%= bowl.restaurant.prefecture %></span>
     </div>
     <div>
-      <span class="px-3"><i class="fa-solid fa-map-pin"></i> : <%= bowl.restaurant.prefecture %></span>
     </div>
   </div>
 </div>
