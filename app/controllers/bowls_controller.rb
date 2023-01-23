@@ -2,6 +2,7 @@ class BowlsController < ApplicationController
   def index
     @bowls = Bowl.all
     @restaurants = Restaurant.all
+    @top_rated = @bowls.sort_by(&:score).last(5).reverse
     @markers = @restaurants.geocoded.map do |restaurant|
       {
         lat: restaurant.latitude,
