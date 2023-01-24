@@ -7,14 +7,6 @@
       <% end %>
     <% end %>
   </div>
-  <div class="top-rated-container">
-    <h2>Top rated bowls</h2>
-    <%@top_rated.each do |bowl| %>
-      <%= link_to bowl_path(bowl) do %>
-        <%= render 'bowl', bowl: bowl %>
-      <% end %>
-    <% end %>
-  </div>
   <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"

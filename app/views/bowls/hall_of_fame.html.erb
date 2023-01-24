@@ -1,0 +1,8 @@
+<div class="top-rated-container">
+  <h2>Hall of Fame</h2>
+  <%@top_rated.each do |bowl| %>
+    <%= link_to bowl_path(bowl) do %>
+      <%= render 'bowl', bowl: bowl %>
+    <% end %>
+  <% end %>
+</div>

@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  get 'bowls/hall_of_fame' => 'bowls#hall_of_fame'
+
   resources :bowls, only: [:index, :show, :new, :create, :update] do
     resources :restaurants, only: [:create]
   end

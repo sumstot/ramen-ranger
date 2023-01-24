@@ -2,7 +2,6 @@ class BowlsController < ApplicationController
   def index
     @bowls = Bowl.all
     @restaurants = Restaurant.all
-    @top_rated = @bowls.sort_by(&:score).last(5).reverse
     @markers = @restaurants.geocoded.map do |restaurant|
       {
         lat: restaurant.latitude,
@@ -10,6 +9,11 @@ class BowlsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: {restaurant: restaurant})
       }
     end
+  end
+
+  def hall_of_fame
+    @bowls = Bowl.all
+    @top_rated = @bowls.sort_by(&:score).last(5).reverse
   end
 
   def new
