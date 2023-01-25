@@ -1,5 +1,5 @@
 class BowlPolicy < ApplicationPolicy
-  attr_reader :user
+  attr_reader :user, :bowl
 
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
@@ -20,7 +20,7 @@ class BowlPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin?
+    user.admin? || !bowl.published?
   end
 
   def destroy?
