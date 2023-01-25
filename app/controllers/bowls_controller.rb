@@ -2,18 +2,10 @@ class BowlsController < ApplicationController
   def index
     @bowls = Bowl.all
     @restaurants = Restaurant.all
-    @markers = @restaurants.geocoded.map do |restaurant|
-      {
-        lat: restaurant.latitude,
-        lng: restaurant.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {restaurant: restaurant})
-      }
-    end
   end
 
-  def hall_of_fame
-    @bowls = Bowl.all
-    @top_rated = @bowls.sort_by(&:score).last(5).reverse
+  def show
+    @bowl = Bowl.find(params[:id])
   end
 
   def new
@@ -32,8 +24,20 @@ class BowlsController < ApplicationController
     end
   end
 
-  def show
-    @bowl = Bowl.find(params[:id])
+  def hall_of_fame
+    @bowls = Bowl.all
+    @top_rated = @bowls.find_all { |bowl| bowl.score == 5 }
+  end
+
+  def map
+    @restaurants = Restaurant.all
+    @markers = @restaurants.geocoded.map do |restaurant|
+      {
+        lat: restaurant.latitude,
+        lng: restaurant.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {restaurant: restaurant})
+      }
+    end
   end
 
   private
