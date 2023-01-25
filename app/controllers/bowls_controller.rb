@@ -1,7 +1,8 @@
 class BowlsController < ApplicationController
   def index
-    @bowls = Bowl.all
     @restaurants = Restaurant.all
+    @bowls = Bowl.all
+    end
   end
 
   def show
