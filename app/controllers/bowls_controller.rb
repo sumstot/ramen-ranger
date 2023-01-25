@@ -1,7 +1,9 @@
 class BowlsController < ApplicationController
   def index
-    @restaurants = Restaurant.all
-    @bowls = Bowl.all
+    if params[:query].present?
+      @bowls = Bowl.where("soup ILIKE ?", "%#{params[:query]}%")
+    else
+      @bowls = Bowl.all
     end
   end
 
