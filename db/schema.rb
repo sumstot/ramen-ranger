@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_25_044327) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_26_073032) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_044327) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "restaurant_id", null: false
+    t.bigint "price"
     t.index ["restaurant_id"], name: "index_bowls_on_restaurant_id"
   end
 
@@ -72,7 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_044327) do
     t.float "latitude"
     t.float "longitude"
     t.string "name"
-    t.float "averagez_score"
+    t.float "average_score"
     t.integer "year_opened"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

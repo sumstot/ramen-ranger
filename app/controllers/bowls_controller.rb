@@ -12,7 +12,7 @@ class BowlsController < ApplicationController
   end
 
   def new
-    @user = current.user
+    @user = current_user
     @bowl = Bowl.new
   end
 
