@@ -1,4 +1,4 @@
 <h1>Welcome to the restaurant show page</h1>
 <h2><%= @restaurant.name %></h2>
 <h2><%= @restaurant.address %></h2>
-
+<%= link_to 'Add a bowl', new_restaurant_bowl_path(@restaurant, @bowl)  %>

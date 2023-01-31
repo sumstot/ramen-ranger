@@ -1,12 +1,11 @@
 <div class="container d-flex justify-content-center">
   <div class="w-50 p-3 d-flex flex-column justify-content-center align-items-center">
-    <%= simple_form_for(@bowl) do |f| %>
+    <%= simple_form_for [@restaurant, Bowl.new] do |f| %>
       <%= f.input :soup %>
       <%= f.input :score %>
       <%= f.input :description, label: "Enter Description" %>
       <%= f.input :review, label: "Review" %>
       <%= f.input :price, label: "Price ¥" %>
-      <%= f.association collection: Restaurant.active.order(:name), prompt: "Choose a Restauarnt" %>
       <%= f.input :photo, as: :file %>
       <%= f.submit  %>
     <% end %>

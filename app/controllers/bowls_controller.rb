@@ -13,15 +13,17 @@ class BowlsController < ApplicationController
 
   def new
     @user = current_user
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @bowl = Bowl.new
   end
 
   def create
     @user = current_user
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @bowl = Bowl.new(bowl_params)
     @bowl.restaurant = @restaurant
     if @bowl.save
-      redirect_to bowl_path
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
