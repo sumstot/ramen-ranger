@@ -7,6 +7,15 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
   end
 
+  def new
+    @restaurant = Restaurant.new(restaurant_params)
+    if @restaurant.save?
+      redirect_to restaurant_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def restaurant_params
