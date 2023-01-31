@@ -1,6 +1,6 @@
 <div class="container d-flex justify-content-center">
   <div class="w-50 p-3 d-flex flex-column justify-content-center align-items-center">
-    <%= simple_form_for(@pet) do |f| %>
+    <%= simple_form_for(@restaurant) do |f| %>
       <%= f.input :address %>
       <%= f.input :name %>
       <%= f.input :jpn_name %>
@@ -8,7 +8,6 @@
       <%= f.input :city, label: "Location (city)" %>
       <%= f.input :prefecture %>
       <%= f.input :station %>
-      <%= f.input :description %>
       <%= f.input :photo, as: :file %>
       <%= f.submit  %>
     <% end %>
