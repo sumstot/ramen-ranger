@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   get 'hall_of_fame' => 'bowls#hall_of_fame'
   get '/map' => 'bowls#map'
 
-  resources :bowls, only: [ :show, :new, :create, :update] do
-    resources :restaurants, only: [:create]
-  end
+  resources :bowls, only: [ :show]
 
-  resources :restaurants, only: [:index, :show, :update]
+  resources :restaurants, only: [:index, :show, :update] do
+    resources :bowls, only: [:new, :create, :update]
+  end
 end

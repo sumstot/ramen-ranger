@@ -17,11 +17,11 @@ class BowlsController < ApplicationController
   end
 
   def create
-    @user = current.user
+    @user = current_user
     @bowl = Bowl.new(bowl_params)
     @bowl.restaurant = @restaurant
     if @bowl.save
-      redirect_to #somewhere rails paths
+      redirect_to bowl_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class BowlsController < ApplicationController
   private
 
   def bowl_params
-    params.require(:bowl).permit(:soup, :score, :description, :review)
+    params.require(:bowl).permit(:soup, :score, :description, :review, :price)
   end
 end
