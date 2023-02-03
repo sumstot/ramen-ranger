@@ -48,6 +48,6 @@ class BowlsController < ApplicationController
   private
 
   def bowl_params
-    params.require(:bowl).permit(:soup, :score, :description, :review, :price, :photo)
+    params.require(:bowl).permit(:soup, :score, :description, :review, :price, :images [])
   end
 end
