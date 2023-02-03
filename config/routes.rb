@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :bowls, only: [ :show]
 
-  resources :restaurants, only: [:index, :new, :create, :show, :update] do
-    resources :bowls, only: [:new, :create, :update]
+  resources :restaurants, only: %i[index new create show update] do
+    resources :bowls, only: %i[new create update]
   end
 end
