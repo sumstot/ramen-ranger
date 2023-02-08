@@ -1,1 +1,21 @@
 
+<div class="restaurant-card mt-5 mb-5">
+  <div class="image">
+    <%= image_tag (restaurant.bowls.last.images[0]), :class => "bowl-image"%>
+  </div>
+  <div class="info-container">
+    <div class="px-3 d-flex flex-column justify-content-center align-items-center">
+      <div><%= restaurant.name %></div>
+      <div><%= restaurant.jpn_name %></div>
+    </div>
+    <div>
+      <span class="ps-2"> Avg. Score</span><span> : <%= restaurant.average_score %> / 5</span>
+    </div>
+    <div class="mt-2">
+      <span class="ps-2">Year Opened </span><span> : <%= restaurant.year_opened %></span>
+    </div>
+    <div>
+      <span class="material-icons-outlined md-18 ps-2">train</span><span> : <%= restaurant.station %></span> <span class="material-icons-outlined md-18 ps-2">location_on</span><span> : <%= restaurant.prefecture %></span>
+    </div>
+  </div>
+</div>
