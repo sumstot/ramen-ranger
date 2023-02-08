@@ -1,4 +1,5 @@
 class BowlsController < ApplicationController
+
   def index
     if params[:query].present?
       @bowls = Bowl.where("soup ILIKE ?", "%#{params[:query]}%")
@@ -50,4 +51,5 @@ class BowlsController < ApplicationController
   def bowl_params
     params.require(:bowl).permit(:soup, :score, :description, :review, :price, :images [])
   end
+
 end
