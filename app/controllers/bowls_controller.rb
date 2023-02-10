@@ -2,10 +2,11 @@ class BowlsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+    @bowls =
     if params[:query].present?
-      @bowls = Bowl.where("soup ILIKE ?", "%#{params[:query]}%")
+      policy_scope(Bowl).where("soup ILIKE ?", "%#{params[:query]}%")
     else
-      @bowls = Bowl.all
+      policy_scope(Bowl)
     end
   end
 
