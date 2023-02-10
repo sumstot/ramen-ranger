@@ -9,7 +9,7 @@ class BowlPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-    
+
     def index?
       true
     end
@@ -17,9 +17,11 @@ class BowlPolicy < ApplicationPolicy
     def show?
       true
     end
-    def resolve
-      scope.all
+
+    def hall_of_fame?
+      true
     end
+
   end
 
   def initialize(user)

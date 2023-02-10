@@ -1,6 +1,6 @@
 class BowlsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
-
+  skip_before_action :authenticate_user!, only: %i[index show hall_of_fame]
+  after_action :verify_authorized, except: %i[index show hall_of_fame]
   def index
     @bowls =
     if params[:query].present?
@@ -35,17 +35,6 @@ class BowlsController < ApplicationController
   def hall_of_fame
     @bowls = Bowl.all
     @top_rated = @bowls.find_all { |bowl| bowl.score == 5 }
-  end
-
-  def map
-    @restaurants = Restaurant.all
-    @markers = @restaurants.geocoded.map do |restaurant|
-      {
-        lat: restaurant.latitude,
-        lng: restaurant.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {restaurant: restaurant})
-      }
-    end
   end
 
   private
