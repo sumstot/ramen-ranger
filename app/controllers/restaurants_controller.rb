@@ -7,6 +7,9 @@ class RestaurantsController < ApplicationController
     else
       policy_scope(Restaurant)
     end
+    @restaurants.each do |restaurant|
+      restaurant.average_score = restaurant.bowls.average(:score).round(1) if restaurant.bowls.present?
+    end
   end
 
   def show
