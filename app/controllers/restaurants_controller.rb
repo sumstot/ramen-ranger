@@ -1,15 +1,17 @@
 class RestaurantsController < ApplicationController
- 
+  skip_before_action :authenticate_user!, only: %i[index show]
   def index
+    @restaurants =
     if params[:query].present?
-      @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
+      policy_scope(Restaurant).where("name ILIKE ?", "%#{params[:query]}%")
     else
-      @restaurants = Restaurant.all
+      policy_scope(Restaurant)
     end
   end
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    authorize @restaurant
   end
 
   def new

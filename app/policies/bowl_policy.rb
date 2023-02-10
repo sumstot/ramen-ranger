@@ -6,6 +6,13 @@ class BowlPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
+    def index?
+      true
+    end
+
+    def show?
+      true
+    end
     def resolve
       scope.all
     end
