@@ -1,7 +1,11 @@
 
 <div class="restaurant-card mt-5 mb-5">
   <div class="image">
-    <%= image_tag (restaurant.bowls.last.images[0]), :class => "bowl-image"%>
+    <% if restaurant.bowls.present? %>
+      <%= image_tag (restaurant.bowls.last.images[0]), :class => "bowl-image" %>
+    <% else %>
+    <p>no bowls</p>
+    <% end %>
   </div>
   <div class="info-container">
     <div class="px-3 d-flex flex-column justify-content-center align-items-center">
@@ -10,6 +14,9 @@
     </div>
     <div>
       <span class="ps-2"> Avg. Score</span><span> : <%= restaurant.average_score %> / 5</span>
+    </div>
+    <div>
+      <span class="ps-2">Times Visted</span><span> : <%= restaurant.bowls.count%></span>
     </div>
     <div class="mt-2">
       <span class="ps-2">Year Opened </span><span> : <%= restaurant.year_opened %></span>
