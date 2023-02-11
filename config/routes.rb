@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get 'hall_of_fame' => 'bowls#hall_of_fame'
-  get '/map' => 'bowls#map'
+  get '/map' => 'restaurants#map'
 
   resources :bowls, only: [ :show]
 
