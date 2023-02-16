@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show map]
   after_action :verify_authorized, except: %i[index show map]
-  
+
   def index
     @restaurants =
     if params[:query].present?
@@ -16,7 +16,6 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    authorize @restaurant
   end
 
   def new

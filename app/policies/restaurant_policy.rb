@@ -17,5 +17,9 @@ class RestaurantPolicy < ApplicationPolicy
     def map?
       true
     end
+
+    def new?
+      user.admin?
+    end
   end
 end
