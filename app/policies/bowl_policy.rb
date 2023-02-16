@@ -1,31 +1,16 @@
 class BowlPolicy < ApplicationPolicy
   attr_reader :user, :bowl
 
-  class Scope < Scope
-    # NOTE: Be explicit about which records you allow access to!
-    # def resolve
-    #   scope.all
-    # end
-    def resolve
-      scope.all
-    end
-
-    def index?
-      true
-    end
-
-    def show?
-      true
-    end
-
-    def hall_of_fame?
-      true
-    end
-
+  def index?
+    true
   end
 
-  def initialize(user)
-    @user = user
+  def show?
+    true
+  end
+
+  def new?
+   user.admin?
   end
 
   def create?
@@ -33,10 +18,16 @@ class BowlPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? || !bowl.published?
+    user.admin?
   end
 
-  def destroy?
-    user.admin?
+  def hall_of_fame?
+    true
+  end
+
+  class Scope < Scope
+    def resolve
+      scope.all
+    end
   end
 end

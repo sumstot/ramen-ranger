@@ -18,6 +18,7 @@ class BowlsController < ApplicationController
     @user = current_user
     @restaurant = Restaurant.find(params[:restaurant_id])
     @bowl = Bowl.new
+    authorize @bowl
   end
 
   def create
