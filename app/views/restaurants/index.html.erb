@@ -2,7 +2,7 @@
 <div class="container">
   <h1>Restauants Page</h1>
   <div class="bowl-container cards">
-    <% @restaurants.each do |restaurant| %>
+    <% @restaurants.reverse_each do |restaurant| %>
       <%= link_to restaurant_path(restaurant) do %>
         <%= render 'restaurant', restaurant: restaurant%>
       <% end %>
