@@ -10,13 +10,13 @@ class RestaurantPolicy < ApplicationPolicy
   end
 
   def new?
-    user.admin?
+    user.admin? if !user.nil?
   end
 
   def create?
     user.admin?
   end
-  
+
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     # def resolve

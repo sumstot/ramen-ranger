@@ -1,7 +1,7 @@
 <%= render "layouts/search" %>
 <div class="container">
   <h1>Restauants Page</h1>
-  <%= link_to 'Add Restaurant', new_restaurant_path, class: "btn"%>
+    <%= link_to 'Add Restaurant', new_restaurant_path, class: "btn"%>
   <div class="bowl-container cards">
     <% @restaurants.each do |restaurant| %>
       <%= link_to restaurant_path(restaurant) do %>
