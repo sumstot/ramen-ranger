@@ -1,9 +1,11 @@
 <div class="container d-flex justify-content-center">
   <div class="w-50 p-3 d-flex flex-column justify-content-center align-items-center">
     <%= simple_form_for(@restaurant) do |f| %>
-      <%= f.input :address %>
       <%= f.input :name %>
       <%= f.input :jpn_name %>
+      <%= f.input :latitude %>
+      <%= f.input :longitude %>
+      <%= f.input :address %>
       <%= f.input :year_opened %>
       <%= f.input :city, label: "Location (city)" %>
       <%= f.input :prefecture %>
