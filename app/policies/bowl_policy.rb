@@ -10,7 +10,7 @@ class BowlPolicy < ApplicationPolicy
   end
 
   def new?
-   user.admin?
+    create?
   end
 
   def create?

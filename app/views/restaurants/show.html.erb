@@ -1,11 +1,14 @@
-<h1>Welcome to the restaurant show page</h1>
-<h2><%= @restaurant.name %></h2>
-<h2><%= @restaurant.address %></h2>
-<%= link_to 'Add a bowl', new_restaurant_bowl_path(@restaurant, @bowl) %>
-<div>
-  <% @restaurant.bowls.each do |bowl| %>
-    <%= link_to bowl_path(bowl) do %>
-      <%= render 'bowls/bowl', bowl: bowl  %>
-    <% end %>
+<div class="container">
+  <h3><%= @restaurant.name %></h3>
+  <h3><%= @restaurant.address %></h3>
+  <% if policy(@bowl).new? %>
+    <%= link_to 'Add a bowl', new_restaurant_bowl_path(@restaurant, @bowl) %>
   <% end %>
+  <div class="cards">
+    <% @restaurant.bowls.reverse_each do |bowl| %>
+      <%= link_to bowl_path(bowl) do %>
+        <%= render 'bowls/bowl', bowl: bowl  %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
