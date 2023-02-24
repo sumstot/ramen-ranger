@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  before_action :set_restaurant, only: %i[show]
   skip_before_action :authenticate_user!, only: %i[index show map]
   after_action :verify_authorized, except: %i[index show map]
 
@@ -15,7 +16,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant
   end
 
   def new
@@ -45,6 +46,10 @@ class RestaurantsController < ApplicationController
   end
 
   private
+
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :jpn_name, :address, :average_score, :year_opened, :city, :prefecture, :station, :latitude, :longitude)

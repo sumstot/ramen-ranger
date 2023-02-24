@@ -2,7 +2,7 @@
 <div class="restaurant-card mt-5 mb-5">
   <div class="image">
     <% if restaurant.bowls.present? %>
-      <%= image_tag (restaurant.bowls.last.images[0]), :class => "bowl-image" %>
+      <%= image_tag (restaurant.bowls.last.images[0]), class: "bowl-image" %>
     <% else %>
     <p>no bowls</p>
     <% end %>
