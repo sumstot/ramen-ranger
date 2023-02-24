@@ -45,14 +45,14 @@ gem "bootsnap", require: false
 # Use Sass to process CSS
 gem "sassc-rails"
 
-#CUSTOM ADDED GEMS
+# CUSTOM ADDED GEMS
 gem 'faker'
 gem 'devise'
 gem 'webpacker'
 gem "geocoder"
 gem 'pundit'
-gem 'pg_search'
 gem 'cloudinary'
+gem 'ransack'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
