@@ -8,7 +8,7 @@ class RestaurantsController < ApplicationController
     if params[:query].present?
       policy_scope(Restaurant).where("name ILIKE ?", "%#{params[:query]}%")
     else
-      policy_scope(Restaurant)
+      policy_scope(Restaurant).includes(:bowls).all
     end
     @restaurants.each do |restaurant|
       restaurant.average_score = restaurant.bowls.average(:score).round(1) if restaurant.bowls.present?
