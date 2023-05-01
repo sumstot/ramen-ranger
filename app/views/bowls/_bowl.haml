@@ -1,0 +1,28 @@
+
+.bowl-card.mt-5.mb-5
+  .image
+    = image_tag bowl.images[0], class: "bowl-image"
+  .info-container
+    .px-3.d-flex.flex-column.justify-content-center.align-items-center
+      %div
+        = bowl.restaurant.name
+      %div
+        = bowl.restaurant.jpn_name
+
+      .mt-2.justify-content-start
+        %span.material-icons-outlined.md-18.ps-2
+          ramen_dining
+        %span
+          = bowl.soup
+    %div
+      %span.material-icons-outlined.md-18.ps-2 grade
+      %span
+        #{bowl.score}/5
+    %div
+      %span.material-icons-outlined.md-18.ps-2 train
+      %span
+        = bowl.restaurant.station
+      %span.material-icons-outlined.md-18.ps-2 location_on
+      %span
+        = bowl.restaurant.prefecture
+

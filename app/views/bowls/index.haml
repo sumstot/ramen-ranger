@@ -1,0 +1,8 @@
+= render 'layouts/search'
+.container.mt-3
+  %h1 Recent Reviews
+  .bowl-container.cards
+    = @bowls.each do |bowl|
+      = link_to bowl_path(bowl) do
+        = render 'bowl', bowl: bowl
+
