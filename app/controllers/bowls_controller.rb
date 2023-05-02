@@ -1,5 +1,6 @@
 class BowlsController < ApplicationController
   before_action :set_restaurant, only: %i[new create]
+  before_action :set_bowl, only: %i(new create)
   skip_before_action :authenticate_user!, only: %i[index show hall_of_fame]
   after_action :verify_authorized, except: %i[index show hall_of_fame]
   def index
@@ -13,7 +14,6 @@ class BowlsController < ApplicationController
   end
 
   def show
-    @bowl = Bowl.find(params[:id])
   end
 
   def new
@@ -45,5 +45,8 @@ class BowlsController < ApplicationController
 
   def set_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
+  end
+  def set_bowl
+    @bowl = Bowl.find(params[:id])
   end
 end

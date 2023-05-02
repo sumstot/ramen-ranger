@@ -1,0 +1,8 @@
+= render 'layouts/search'
+.container
+  %h1 Restaurants Page
+  .bowl-container.cards
+    - @restaurants.each do |restaurant|
+      = link_to restaurant_path(restaurant) do
+        = render 'restaurant', restaurant: restaurant
+

@@ -1,0 +1,14 @@
+.container
+  .image-container
+    = image_tag (@bowl.images[0]), class: "show-bowl"
+  %h3
+    = link_to restaurant_path(@bowl.restaurant) do
+      = @bowl.restaurant.name
+  %h5
+    = @bowl.soup
+  %br
+  %h5 ⭐️ #{@bowl.score}
+  %br
+  %p
+    = @bowl.review
+
