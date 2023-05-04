@@ -1,0 +1,7 @@
+.container
+  .top-rated-container
+    %h2 Hall of Fame
+    - @top_rated.each do |bowl|
+      = link_to bowl_path(bowl) do
+        = render 'bowl', bowl: bowl
+

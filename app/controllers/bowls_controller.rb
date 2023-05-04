@@ -1,16 +1,12 @@
 class BowlsController < ApplicationController
-  before_action :set_restaurant, only: %i[new create]
-  before_action :set_bowl, only: %i(new create)
+  # before_action :set_restaurant, only: %i[new create show]
+  before_action :set_bowl, only: %i[new create show]
   skip_before_action :authenticate_user!, only: %i[index show hall_of_fame]
   after_action :verify_authorized, except: %i[index show hall_of_fame]
   def index
-    @bowls =
-    if params[:query].present?
-      policy_scope(Bowl).where("name ILIKE ?", "%#{params[:query]}%")
-    else
-
-      policy_scope(Bowl).includes(images_attachments: :blob).all
-    end
+    @q = Bowl.ransack(params[:q])
+    @bowls = @q.result
+    policy_scope(Bowl).includes(images_attachments: :blob).all
   end
 
   def show
@@ -43,9 +39,9 @@ class BowlsController < ApplicationController
     params.require(:bowl).permit(:soup, :score, :description, :review, :price, :images [])
   end
 
-  def set_restaurant
-    @restaurant = Restaurant.find(params[:restaurant_id])
-  end
+  # def set_restaurant
+  #   @restaurant = Restaurant.find(params[:id])
+  # end
   def set_bowl
     @bowl = Bowl.find(params[:id])
   end
